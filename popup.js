@@ -60,7 +60,7 @@ opacityInput.addEventListener("input", (event) => {
 });
 
 imageInput.addEventListener("change", (event) => {
-  saveSettings({ imageUrl: event.target.value.trim() });
+  saveSettings({ imageUrl: event.target.value });
 });
 
 clearImageButton.addEventListener("click", () => {

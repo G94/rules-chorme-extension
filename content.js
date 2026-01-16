@@ -14,7 +14,6 @@ const createRuler = () => {
   ruler.id = "reading-ruler-extension";
   ruler.style.position = "fixed";
   ruler.style.left = "0";
-  ruler.style.right = "0";
   ruler.style.top = "0";
   ruler.style.width = "100%";
   ruler.style.pointerEvents = "none";
@@ -44,16 +43,9 @@ const applySettings = (settings) => {
   }
 
   ruler.style.height = `${settings.height}px`;
-  if (settings.imageUrl) {
-    ruler.style.backgroundImage = `url("${settings.imageUrl}")`;
-    ruler.style.backgroundPosition = "center";
-    ruler.style.backgroundRepeat = "no-repeat";
-    ruler.style.backgroundSize = "cover";
-    ruler.style.backgroundColor = "transparent";
-  } else {
-    ruler.style.backgroundImage = "none";
-    ruler.style.backgroundColor = settings.color;
-  }
+  ruler.style.background = settings.imageUrl
+    ? `center / cover no-repeat url(${settings.imageUrl})`
+    : settings.color;
   ruler.style.opacity = settings.opacity.toString();
 };
 
@@ -112,30 +104,9 @@ window.addEventListener("mousemove", (event) => {
   updatePosition(event.clientY);
 });
 
-document.addEventListener("pointermove", (event) => {
-  if (!ruler) {
-    return;
-  }
-  updatePosition(event.clientY);
-});
-
-document.addEventListener("pointerdown", (event) => {
-  if (!ruler) {
-    return;
-  }
-  updatePosition(event.clientY);
-});
-
 window.addEventListener("scroll", () => {
   if (!ruler) {
     return;
   }
   updatePosition(lastY);
-});
-
-window.addEventListener("resize", () => {
-  if (!ruler) {
-    return;
-  }
-  updatePosition(lastY || window.innerHeight / 2);
 });
