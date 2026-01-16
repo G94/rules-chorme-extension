@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Regla de lectura</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Regla de lectura</h1>
+      <label class="switch">
+        <input id="toggle" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <section>
+      <label>
+        Altura
+        <input id="height" type="range" min="40" max="200" step="4" />
+        <span id="height-value"></span>
+      </label>
+
+      <label>
+        Color
+        <input id="color" type="color" />
+      </label>
+
+      <label>
+        Opacidad
+        <input id="opacity" type="range" min="0.2" max="1" step="0.05" />
+        <span id="opacity-value"></span>
+      </label>
+
+      <label>
+        Imagen (URL)
+        <input id="image" type="url" placeholder="https://..." />
+      </label>
+
+      <button id="clear-image" type="button">Quitar imagen</button>
+    </section>
+
+    <footer>
+      <p>Mueve el cursor para seguir la lectura.</p>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

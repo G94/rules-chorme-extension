@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Regla de lectura",
+  "version": "1.0.0",
+  "description": "Muestra una regla en pantalla para ayudar a la lectura y concentración.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Regla de lectura",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
